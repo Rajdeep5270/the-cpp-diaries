@@ -1,9 +1,3 @@
- ______     ______     __         __     ______
-/\  ___\   /\  __ \   /\ \       /\ \   /\  ___\
-\ \___  \  \ \ \/\ \  \ \ \____  \ \ \  \ \___  \
- \/\_____\  \ \_____\  \ \_____\  \ \_\  \/\_____\
-  \/_____/   \/_____/   \/_____/   \/_/   \/_____/
-
       The C++ Diaries – PR-2 Edition
 
 ## Programs Overview
@@ -20,7 +14,7 @@
 
 ---
 
-## Project Structure
+## Project Structure and Path -~
 
 - `q-1.cpp` — Series Printing Program 
 - `E:\C++ Language\PR - 2\q-1.cpp` — Contains Series Printing Program.
