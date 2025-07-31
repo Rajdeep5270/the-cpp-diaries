@@ -12,13 +12,6 @@ Welcome to the **Pattern Programs Project** – a collection of logic-based prog
 - [About](#about)
 - [Output Preview](#-output-preview)
 - [Learnings](#-learnings)
-- [How to Run](#how-to-run)
-- [Folder Structure](#folder-structure)
-- [Sample Code](#-sample-code)
-- [Contribute](#-contribute)
-- [Contact](#-contact)
-- [License](#-license)
-
 ---
 
 ## 📌 About
@@ -39,6 +32,36 @@ This repo includes:
 
 ![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-1.png?raw=true)
 
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-2.png)
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-3.png)
+
+### 🧵 Triangle Odd & Even Number Pattern
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-4.png)
+
+### 🧵 Pyramid Number Pattern 
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-5.png)
+
+### 🧵 Symnmetric Number pattern
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-6.png)
+
+### 🧵 Alphabet Pattern
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-7.png)
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-8.png)
+
+### 🧵 Pyramid of Stars
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-9.png)
+
+### 🧵 H Shaped Number Pattern
+
+![Pattern Output](https://github.com/Rajdeep5270/the-cpp-diaries/blob/master/PR%20-%203/q-10.png)
+
 ---
 
 ## 🧠 Learnings
@@ -49,11 +72,3 @@ This repo includes:
 - Logic simplification techniques
 
 ---
-
-## 💻 How to Run
-
-### Compile & Run (C/C++)
-
-```bash
-gcc filename.c -o output
-./output
