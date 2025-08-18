@@ -5,19 +5,18 @@ using namespace std;
 int main()
 {
 
-    string password;
+    char password[20];
 
     cout << "Enter Your Password Here : ";
-    getline(cin, password);
+    cin >> password;
 
     int cap = 0, spe = 0, digit = 0;
-    if (password[0] >= 'A' && password[0] <= 'z')
-    {
-        cap = 1;
-    }
-
     for (int i = 0; password[i] != '\0'; i++)
     {
+        if (password[0] >= 'A' && password[0] <= 'z')
+        {
+            cap = 1;
+        }
         if (password[i] >= '0' && password[i] <= '9')
         {
             digit = 1;
