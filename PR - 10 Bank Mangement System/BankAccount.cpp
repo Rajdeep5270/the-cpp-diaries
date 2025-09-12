@@ -248,6 +248,34 @@ public:
         cin.ignore();
         cin.get();
     }
+
+    // deposit account balance for checking account
+    void depositCheckingAccount()
+    {
+        int amount;
+        cout << endl
+             << endl
+             << "DEPOSIT" << endl
+             << endl;
+        cout << "Enter Amount to Deposit : ";
+        cin >> amount;
+        if (overdraftLimit < 50000)
+        {
+            overdraftLimit += amount;
+            cout << "Remaining Overdraft\t: " << overdraftLimit << endl;
+            cout << "Remaining Balance\t: 0" << endl;
+        }
+        else
+        {
+            balance += amount;
+            cout << "Remaining Overdraft\t: " << overdraftLimit << endl;
+            cout << "Remaining Balance\t: " << balance << endl;
+        }
+
+        cout << "Press Enter to Continue..." << endl;
+        cin.ignore();
+        cin.get();
+    };
 };
 
 class FixedDepositAccount : public virtual BankAccount, SavingsAccount, CheckingAccount
@@ -365,7 +393,7 @@ public:
                 {
                 case 1:
                     system("cls");
-                    deposit();
+                    depositCheckingAccount();
                     break;
 
                 case 2:
