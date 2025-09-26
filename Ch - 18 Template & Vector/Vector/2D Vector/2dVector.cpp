@@ -11,9 +11,9 @@ int main()
     cout << "Enter Column : ";
     cin >> col;
 
-    vector<int> v1(row);
+    // vector<int> v1(row);
 
-    vector<vector<int>> matrix(col, v1);
+    vector<vector<int>> matrix(col, vector<int>(row));
 
     cout << endl
          << endl
