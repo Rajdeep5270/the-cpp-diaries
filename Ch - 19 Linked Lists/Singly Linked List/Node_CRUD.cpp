@@ -7,129 +7,170 @@ public:
     int data;
     Node *next;
 
-    Node(int value)
+    Node(int data)
     {
-        this->data = value;
+        this->data = data;
         this->next = nullptr;
     }
 };
 
-class NodeMethods
+class LinkedList
 {
 public:
-    Node *HEAD;
+    Node *head;
+    int count;
 
-    void addStarting(int data)
+    LinkedList()
     {
-        Node *newNode = new Node(data);
-        newNode->next = HEAD;
-        HEAD = newNode;
+        this->head = nullptr;
+        this->count = 0;
     }
 
-    void addEnding(int data)
+    // add from beginning
+    void addFromBeginning(int data)
     {
         Node *newNode = new Node(data);
-        if (HEAD == nullptr)
+        newNode->next = this->head;
+        this->head = newNode;
+        count++;
+    }
+
+    // add from ending
+    void addFromEnding(int data)
+    {
+        Node *newNode = new Node(data);
+        if (this->head == nullptr)
         {
-            newNode->next = HEAD;
-            HEAD = newNode;
+            newNode->next = this->head;
+            this->head = newNode;
         }
         else
         {
-            Node *ptr = HEAD;
-            do
+            Node *ptr = this->head;
+            while (ptr->next != nullptr)
             {
                 ptr = ptr->next;
-            } while (ptr->next != NULL);
+            }
             ptr->next = newNode;
         }
+        count++;
     }
 
-    void fetchData()
+    // add at any position
+    void addAtAnyPosition(int data, int position)
     {
-        if (HEAD == nullptr)
+        Node *newNode = new Node(data);
+        if (head == nullptr)
         {
             cout << endl
                  << endl
-                 << "List is Empty" << endl
+                 << "No Element" << endl
                  << endl;
-            return;
         }
-        Node *ptr = HEAD;
-        cout << "Linked Lists : ";
-        do
+        else
         {
-            cout << ptr->data << " ";
-            ptr = ptr->next;
-        } while (ptr != NULL);
-        cout << endl
-             << endl;
+            if (position > 1 && position < count)
+            {
+                Node *ptr = this->head;
+                for (int i = 0; i < position - 1; i++)
+                {
+                    ptr = ptr->next;
+                }
+                newNode->next = ptr->next;
+                ptr->next = newNode;
+                count++;
+            }
+            else
+            {
+                cout << endl
+                     << endl
+                     << "Invalid Position" << endl
+                     << endl;
+            }
+        }
+    }
+
+    // display all data
+    void displayAllData()
+    {
+        Node *ptr = this->head;
+        if (this->head == nullptr || count == 0)
+        {
+            cout << endl
+                 << endl
+                 << "No Elements are there." << endl
+                 << endl;
+        }
+        else
+        {
+            cout << endl
+                 << endl
+                 << "Elements are : ";
+            while (ptr != nullptr)
+            {
+                cout << ptr->data << " ";
+                ptr = ptr->next;
+            }
+            cout << endl
+                 << endl;
+        }
     }
 };
 
 int main()
 {
-    NodeMethods n1;
-    int ch, data;
+    LinkedList l1;
 
-    cout << endl
-         << endl
-         << "CRUD Program Node" << endl
-         << endl;
+    int ch;
+    int data, position;
+
     do
     {
-        cout << "1. Add from start" << endl;
-        cout << "2. Add from last" << endl;
-        cout << "3. Add from position" << endl;
-        cout << "4. Fetch all data" << endl;
-        cout << "5. Update" << endl;
-        cout << "6. Delete" << endl;
+        cout << endl
+             << endl
+             << "Node Crud Operation" << endl
+             << endl;
+        cout << "1. Insert Beginning" << endl;
+        cout << "2. Insert Ending" << endl;
+        cout << "3. Insert at any position" << endl;
+        cout << "4. Display all Data" << endl;
         cout << "0. Exit" << endl;
-        cout << "Enter Your Choice : ";
+        cout << "Enter your choice : ";
         cin >> ch;
 
         switch (ch)
         {
         case 1:
-            cout << endl
-                 << endl
-                 << "Add From Start" << endl
-                 << endl;
             cout << "Enter element : ";
             cin >> data;
-            n1.addStarting(data);
+            l1.addFromBeginning(data);
             break;
+
         case 2:
-            cout << endl
-                 << endl
-                 << "Add From Ending" << endl
-                 << endl;
             cout << "Enter element : ";
             cin >> data;
-            n1.addEnding(data);
+            l1.addFromEnding(data);
             break;
+
         case 3:
-
+            cout << "Enter element : ";
+            cin >> data;
+            cout << "Enter position : ";
+            cin >> position;
+            l1.addAtAnyPosition(data, position);
             break;
+
         case 4:
-            cout << endl
-                 << endl
-                 << "Fetch Data" << endl
-                 << endl;
-            n1.fetchData();
+            l1.displayAllData();
             break;
-        case 5:
 
-            break;
-        case 6:
-
-            break;
         case 0:
             cout << endl
                  << endl
-                 << "Program Exited Successfully...!" << endl
+                 << "Exiting Program...!" << endl
                  << endl;
             break;
+
         default:
             cout << endl
                  << endl
@@ -137,6 +178,4 @@ int main()
                  << endl;
         }
     } while (ch != 0);
-
-    return 0;
 }
