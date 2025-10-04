@@ -90,6 +90,128 @@ public:
         }
     }
 
+    // update node
+    void update(int data, int position)
+    {
+        if (this->head == nullptr && this->count == 0)
+        {
+            cout << endl
+                 << "List is empty...!" << endl
+                 << endl;
+            return;
+        }
+
+        if (position < 0 || position > count)
+        {
+            cout << endl
+                 << "Invalid Position...!" << endl
+                 << endl;
+            return;
+        }
+
+        Node *ptr = this->head;
+        for (int i = 0; i < position; i++)
+        {
+            ptr = ptr->next;
+        }
+        ptr->data = data;
+    }
+
+    // delete node from beginning
+    void deleteFromBeginning()
+    {
+        if (head == nullptr && count == 0)
+        {
+            cout << endl
+                 << "List is empty...!" << endl
+                 << endl;
+            return;
+        }
+        Node *ptr = this->head;
+        this->head = this->head->next;
+
+        delete ptr;
+        ptr = nullptr;
+        count--;
+    }
+
+    // delete node from ending
+    void deleteFromEnding()
+    {
+        if (head == nullptr || count == 0)
+        {
+            cout << endl
+                 << "List is empty...!" << endl
+                 << endl;
+            return;
+        }
+
+        Node *ptr = this->head;
+        while (ptr->next->next != nullptr)
+        {
+            ptr = ptr->next;
+        }
+
+        delete ptr->next;
+        ptr->next = nullptr;
+        ptr = nullptr;
+        count--;
+    }
+
+    // delete at any position
+    void deleteAtAnyPosition(int position)
+    {
+        if (head == nullptr && count == 0)
+        {
+            cout << endl
+                 << "List is empty...!" << endl
+                 << endl;
+            return;
+        }
+
+        if (position < 0 || position >= count)
+        {
+            cout << endl
+                 << "Invalid position...!" << endl
+                 << endl;
+            return;
+        }
+
+        if (position == 0)
+        {
+            Node *temp = this->head;
+            this->head = this->head->next;
+            delete temp;
+            temp = nullptr;
+            count--;
+            return;
+        }
+
+        Node *prev = this->head;
+        Node *current = this->head;
+
+        for (int i = 0; i < position; i++)
+            current = current->next;
+
+        for (int i = 0; i < position - 1; i++)
+            prev = prev->next;
+
+        prev->next = current->next;
+
+        delete current;
+        current = nullptr;
+
+        prev = nullptr;
+        delete prev;
+        count--;
+    }
+
+    // length of nodes
+    int countLength()
+    {
+        return this->count;
+    }
+
     // display all data
     void displayAllData()
     {
@@ -133,7 +255,12 @@ int main()
         cout << "1. Insert Beginning" << endl;
         cout << "2. Insert Ending" << endl;
         cout << "3. Insert at any position" << endl;
-        cout << "4. Display all Data" << endl;
+        cout << "4. Update" << endl;
+        cout << "5. Delete from Beginning" << endl;
+        cout << "6. Delete from Ending" << endl;
+        cout << "7. Delete at any position" << endl;
+        cout << "8. Display all Data" << endl;
+        cout << "9. Length of Nodes" << endl;
         cout << "0. Exit" << endl;
         cout << "Enter your choice : ";
         cin >> ch;
@@ -161,7 +288,35 @@ int main()
             break;
 
         case 4:
+            cout << "Enter element : ";
+            cin >> data;
+            cout << "Enter position : ";
+            cin >> position;
+            l1.update(data, position);
+            break;
+
+        case 5:
+            l1.deleteFromBeginning();
+            break;
+
+        case 6:
+            l1.deleteFromEnding();
+            break;
+
+        case 7:
+            cout << "Enter position : ";
+            cin >> position;
+            l1.deleteAtAnyPosition(position);
+            break;
+
+        case 8:
             l1.displayAllData();
+            break;
+
+        case 9:
+            cout << endl
+                 << "Length of nodes : " << l1.countLength() << endl
+                 << endl;
             break;
 
         case 0:
