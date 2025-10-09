@@ -8,7 +8,7 @@ int main()
     cout << "Enter number of stack elements : ";
     cin >> size;
 
-    Stack stack(size);
+    Stack<int> stack(size);
     int ch;
     int element;
 
