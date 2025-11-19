@@ -4,92 +4,61 @@ using namespace std;
 
 int main()
 {
-    int ch;
+    int n;
+    cout << "Enter array size: ";
+    cin >> n;
+
+    Categorizing obj(n);
+    obj.input();
+
+    int choice;
+
     do
     {
-        cout << "1. Sorting" << endl;
-        cout << "2. Searching" << endl;
-        cout << "Enter your choice : ";
-        cin >> ch;
-        switch (ch)
+        cout << endl
+             << "========= MENU =========" << endl;
+        cout << "1. Selection Sort Ascending" << endl;
+        cout << "2. Selection Sort Descending" << endl;
+        cout << "3. Merge Sort Ascending" << endl;
+        cout << "4. Merge Sort Descending" << endl;
+        cout << "5. Linear Search" << endl;
+        cout << "6. Binary Search" << endl;
+        cout << "7. Display Array" << endl;
+        cout << "0. Exit" << endl;
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice)
         {
-            int num;
-            int subch;
         case 1:
-            cout << endl
-                 << endl
-                 << "SORTING" << endl
-                 << endl;
-            cout << "1. Selection sort" << endl;
-            cout << "2. Merge sort" << endl;
-            cout << "Enter your choice : ";
-            cin >> subch;
-            switch (subch)
-            {
-            case 1:
-            {
-                cout << endl
-                     << endl
-                     << "SELECTION SORT" << endl
-                     << endl;
-                cout << "Enter number of elements : ";
-                cin >> num;
-                Categorizing obj(num);
-                obj.getElements();
-                obj.setElements();
-            }
-            break;
-
-            case 2:
-                cout << endl
-                     << endl
-                     << "MERGE SORT" << endl
-                     << endl;
-                break;
-
-            default:
-                cout << endl
-                     << endl
-                     << "Invalid Choice" << endl
-                     << endl;
-            }
+            obj.selectionSortAsc();
             break;
         case 2:
-            cout << endl
-                 << endl
-                 << "SEARCHING" << endl
-                 << endl;
-            cout << "1. Binary search" << endl;
-            cout << "2. Linear search" << endl;
-            cout << "Enter your choice : ";
-            cin >> subch;
-            switch (subch)
-            {
-            case 1:
-                cout << endl
-                     << endl
-                     << "BINARY SEARCH" << endl
-                     << endl;
-                break;
-
-            case 2:
-                cout << endl
-                     << endl
-                     << "LINEAR SEARCH" << endl
-                     << endl;
-                break;
-            default:
-                cout << endl
-                     << endl
-                     << "Invalid Choice" << endl
-                     << endl;
-            }
+            obj.selectionSortDesc();
+            break;
+        case 3:
+            obj.mergeSortAsc(0, n - 1);
+            cout << "Merge Sort Ascending Completed." << endl;
+            break;
+        case 4:
+            obj.mergeSortDesc(0, n - 1);
+            cout << "Merge Sort Descending Completed." << endl;
+            break;
+        case 5:
+            obj.linearSearch();
+            break;
+        case 6:
+            obj.binarySearch();
+            break;
+        case 7:
+            obj.display();
+            break;
+        case 0:
+            cout << "Exiting..." << endl;
             break;
         default:
-            cout << endl
-                 << endl
-                 << "Invalid Choice" << endl
-                 << endl;
+            cout << "Invalid Choice!" << endl;
         }
-    } while (ch != 0);
+
+    } while (choice != 0);
 }
